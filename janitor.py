@@ -5,6 +5,7 @@ from instances import Instance
 class Janitor:
 
   instances = Instance()
+  username = "root"
 
   def __init__(self, key, username):
     self.key = key
