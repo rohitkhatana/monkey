@@ -1,12 +1,14 @@
 from client import client
 from auto_scaling import AutoScaling
 from instances import Instance
+from security_group import SecurityGroup
 
 class Conformity:
 
     def __init__(self):
         self._auto_scaling = AutoScaling()
         self._instance = Instance()
+        self._security_group = SecurityGroup()
         self.__valid_tags = ['env', 'serviceType', 'serviceName']
         self.__valid_env_tag_value = ['dev', 'stage', 'prod', 'uat']
 
@@ -59,11 +61,20 @@ class Conformity:
     def __instances_id(self):
         return map(lambda instance: instance['InstanceId'], self.__get_instances())
 
+    def security_group_status(self, instance):
+        security_group_ids = instance['SecurityGroupIds']['SecurityGroupId']
+        status = self._security_group.valid_security_groups(security_group_ids)
+        msg = ''
+        if not status:
+            msg = 'contain invalid cidr 0.0.0.0/0 or port range is greater than 0, for ex: allowed range: 22/22'
+        return {'valid': status, 'msg': msg}
+
     def __map_confirmity_status(self, instance):
         return {
             'is_auto_scaling_enabled': self.is_auto_scaling_enabled(instance['InstanceId']),
             'tag_status': self.proper_tag(instance['InstanceId']),
             'is_monitoring_enabled': False,
+            'security_group_status': self.security_group_status(instance)
         }
 
     def perform(self):
