@@ -19,3 +19,10 @@ class Instance:
         response = client.do_action_with_exception(request)
         response = json.loads(response)
         return response['Instances']['Instance']
+
+    
+    def get_ip_list(self):
+        ipList = []
+        for instance in self.get_instances() :
+            ipList.append(instance["PublicIpAddress"]["IpAddress"][0])
+            return ipList
