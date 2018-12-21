@@ -38,7 +38,7 @@ class Conformity:
         else:
             return False, msgs
 
-    def is_proper_tag(self, instance_id):
+    def proper_tag(self, instance_id):
         tags = self._instance.tags(instance_id)
 
         if len(tags) == 0:
@@ -62,7 +62,7 @@ class Conformity:
     def __map_confirmity_status(self, instance_id):
         return {
             'is_auto_scaling_enabled': self.is_auto_scaling_enabled(instance_id),
-            'tag_status': self.is_proper_tag(instance_id),
+            'tag_status': self.proper_tag(instance_id),
             'is_monitoring_enabled': False,
         }
 
