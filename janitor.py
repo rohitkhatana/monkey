@@ -37,7 +37,7 @@ class Janitor:
     self.commands = commands
 
   def get_logs_activity(self):
-    return self.run_ssh_check(["locate *.log"])
+    return self.run_ssh_check(["locate *.log -0 | xargs -0 ls -ltd"])
 
   def get_last_activity(self):
     return self.run_ssh_check(["last -x"])
