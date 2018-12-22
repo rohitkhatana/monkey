@@ -72,6 +72,7 @@ class Conformity:
     def __map_confirmity_status(self, instance):
         return {
             'instance_id': instance['InstanceId'],
+            'instance_name': instance['InstanceName'],
             'is_auto_scaling_enabled': self.is_auto_scaling_enabled(instance['InstanceId']),
             'tag_status': self.proper_tag(instance['InstanceId']),
             'is_monitoring_enabled': False,
@@ -81,6 +82,6 @@ class Conformity:
     def perform(self):
         instances = self._instance.get_instances()
         instance_ids = self.__instances_id()
-        print map(lambda instance: self.__map_confirmity_status(instance), instances)
+        return map(lambda instance: self.__map_confirmity_status(instance), instances)
 
 

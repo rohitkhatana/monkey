@@ -7,4 +7,5 @@ chaos monkey for alibaba cloud
 3. pip install -r requirements.txt
 4. cp credentials_format.py credentials.py
 5. udpate the credentails
-6. python __init__.py
+6. python app.py
+7. now you open link http://127.0.0.1:5000/conformity in browser 

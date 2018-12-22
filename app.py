@@ -1,4 +1,5 @@
 from flask import Flask, redirect, url_for
+from flask import jsonify
 from aliyunsdkcore.client import AcsClient
 import json
 
@@ -13,7 +14,7 @@ def home():
 @app.route('/conformity')
 def conformity():
     result = Conformity().perform()
-    return 'hello'
+    return jsonify(result)
 
 
 if __name__ == '__main__':
