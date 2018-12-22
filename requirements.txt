@@ -2,10 +2,15 @@ aliyun-python-sdk-core==2.11.2
 aliyun-python-sdk-ecs==4.15.0
 appnope==0.1.0
 backports.shutil-get-terminal-size==1.0.0
+Click==7.0
 decorator==4.3.0
 enum34==1.1.6
+Flask==1.0.2
 ipython==5.8.0
 ipython-genutils==0.2.0
+itsdangerous==1.1.0
+Jinja2==2.10
+MarkupSafe==1.1.0
 pathlib2==2.3.3
 pexpect==4.6.0
 pickleshare==0.7.5
@@ -18,3 +23,4 @@ simplegeneric==0.8.1
 six==1.12.0
 traitlets==4.3.2
 wcwidth==0.1.7
+Werkzeug==0.14.1
