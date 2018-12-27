@@ -3,7 +3,7 @@ from flask import jsonify
 from aliyunsdkcore.client import AcsClient
 import json
 
-from conformity import Conformity
+from conformity.conformity import Conformity
 
 app = Flask(__name__)
 

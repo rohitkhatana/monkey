@@ -1,8 +1,8 @@
-from client import client
-from auto_scaling import AutoScaling
-from instances import Instance
-from security_group import SecurityGroup
-from tag import Tag
+from aliyun.client import client
+from aliyun.auto_scaling import AutoScaling
+from aliyun.instances import Instance
+from aliyun.security_group import SecurityGroup
+from aliyun.tag import Tag
 
 class Conformity:
 
